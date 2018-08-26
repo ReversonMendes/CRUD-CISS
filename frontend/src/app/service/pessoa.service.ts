@@ -15,7 +15,6 @@ export class PessoaService {
   private baseUrl = 'http://localhost:8080/backend/cadastros';
   
   public getPessoas() {
-    console.log("to chamando")
     return this.http.get<Pessoa[]>(this.baseUrl);
   }
 
@@ -28,8 +27,7 @@ export class PessoaService {
   }
 
   public getPessoaId(id) {
-    console.log(id)
-    return this.http.get(this.baseUrl + "/" + id);
+    return this.http.get<Pessoa>(this.baseUrl + "/" + id);
   }
 
   public updatePessoa(pessoa) {

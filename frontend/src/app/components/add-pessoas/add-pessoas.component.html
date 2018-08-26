@@ -1,3 +1,53 @@
-<p>
-  add-pessoas works!
-</p>
+<div class="col-md-6">
+  <h2 class="text-center">Cadastro de Pessoa</h2>
+  <form [formGroup]="formulario">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+
+      <input placeholder="Nome" name="nome" class="form-control" id="nome" formControlName="nome" [(ngModel)]="pessoa.nome">
+
+      <div *ngIf="formulario.get('nome').invalid && (formulario.get('nome').dirty ||
+      formulario.get('nome').touched)" class="alert alert-danger">
+        O Nome é Obrigatório!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+
+      <input type="email" placeholder="Email" name="email" class="form-control" id="email" formControlName="email" [(ngModel)]="pessoa.email">
+
+      <div *ngIf="formulario.get('email').invalid && (formulario.get('email').dirty ||
+      formulario.get('email').touched)" class="alert alert-danger">
+        O Email é Obrigatório!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="dataNascimento">Data de Nascimento:</label>
+
+      <input type="date" name="datanascimento" class="form-control" id="datanascimento" formControlName="datanascimento" [(ngModel)]="pessoa.datanascimento" >
+
+      <div *ngIf="formulario.get('datanascimento').invalid && (formulario.get('datanascimento').dirty ||
+      formulario.get('datanascimento').touched)" class="alert alert-danger">
+        A data de Nascimento é Obrigatório!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="sexo">Sexo: </label>
+      
+      <label for="sexo" class="radio-inline">
+        <input type="radio" formControlName="sexo" [(ngModel)]="pessoa.sexo" name="sexo" value="M" id="sexo"> Masculino
+      </label>
+
+      <label for="sexo" class="radio-inline">
+        <input type="radio" formControlName="sexo" [(ngModel)]="pessoa.sexo" name="sexo" value="F" id="sexo"> Feminino
+      </label>
+
+      <div *ngIf="formulario.get('sexo').invalid && (formulario.get('sexo').pristine)" class="alert alert-danger">
+        Informe o seu Sexo!
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success" (click)="incluirPessoa()" [disabled]="!formulario.valid">Gravar</button>
+    </div>
+  </form>
+</div>

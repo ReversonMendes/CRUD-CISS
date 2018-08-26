@@ -17,10 +17,21 @@ export class PessoasComponent implements OnInit {
   constructor(private router: Router, private pessoaService: PessoaService) { }
 
   ngOnInit() {
-    this.pessoaService.getPessoas().subscribe( data => {
-      console.log('chamando')
+    this.pessoaService.getPessoas().subscribe(data => {
       this.pessoas = data;
+    }, error => {
+      alert('Oh não! aconteceu um erro! -> ' + error)
     })
+  }
+
+
+  excluirPessoa(pessoa: Pessoa): void {
+    this.pessoaService.deletePessoa(pessoa).subscribe(data => {
+      this.pessoas = this.pessoas.filter(u => u !== pessoa);
+    }, error => {
+      alert('Oh não! aconteceu um erro! -> ' + error)
+    })
+
   }
 
 
