@@ -17,28 +17,28 @@ public class PessoaController {
 
     @PostMapping
     public Pessoa insert(@RequestBody Pessoa pessoa){
-        return pessoaService.create(pessoa);
+        return pessoaService.insere(pessoa);
     }
 
     @GetMapping(path = {"/{id}"})
     public  Pessoa getById(@PathVariable("id") int id){
-        return pessoaService.findById(id);
+        return pessoaService.buscabyId(id);
     }
 
     @PutMapping(path = {"/{id}"})
     public Pessoa update(@PathVariable("id") int id, @RequestBody Pessoa pessoa){
         pessoa.setId(id);
-        return  pessoaService.update(pessoa);
+        return  pessoaService.atualiza(pessoa);
     }
 
     @DeleteMapping(path = {"/{id}"})
     public Pessoa delete(@PathVariable("id") int id){
-        return pessoaService.delete(id);
+        return pessoaService.excluir(id);
     }
 
     @GetMapping
     public List<Pessoa>getAll(){
-        return pessoaService.findAll();
+        return pessoaService.buscatodos();
     }
 
 }

@@ -5,13 +5,13 @@ import br.com.ciss.model.Pessoa;
 import java.util.List;
 
 public interface PessoaService {
-    Pessoa create(Pessoa pessoa);
+    Pessoa insere(Pessoa pessoa);
 
-    Pessoa delete(int id);
+    Pessoa excluir(int id);
 
-    List<Pessoa> findAll();
+    List<Pessoa> buscatodos();
 
-    Pessoa findById(int id);
+    Pessoa buscabyId(int id);
 
-    Pessoa update(Pessoa user);
+    Pessoa atualiza(Pessoa user);
 }

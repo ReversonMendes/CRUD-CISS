@@ -14,13 +14,13 @@ public class PessoaServiceImpl implements PessoaService {
     private PessoaRepository repository;
 
     @Override
-    public Pessoa create(Pessoa pessoa) {
+    public Pessoa insere(Pessoa pessoa) {
         return repository.save(pessoa);
     }
 
     @Override
-    public Pessoa delete(int id) {
-        Pessoa pessoa = findById(id);
+    public Pessoa excluir(int id) {
+        Pessoa pessoa = buscabyId(id);
         if(pessoa != null){
             repository.delete(pessoa);
         }
@@ -28,17 +28,17 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
-    public List<Pessoa> findAll() {
+    public List<Pessoa> buscatodos() {
         return repository.findAll();
     }
 
     @Override
-    public Pessoa findById(int id) {
+    public Pessoa buscabyId(int id) {
         return repository.findOne(id);
     }
 
     @Override
-    public Pessoa update(Pessoa pessoa) {
+    public Pessoa atualiza(Pessoa pessoa) {
         return repository.save(pessoa);
     }
 }
