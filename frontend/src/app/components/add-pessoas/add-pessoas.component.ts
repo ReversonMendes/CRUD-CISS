@@ -24,7 +24,7 @@ export class AddPessoasComponent implements OnInit {
         this.router.navigate(['pessoas']);
       }, error => {
         console.log(error);
-        alert("Oh não! aconteceu um erro! ->"+error);
+        alert("Oh não! aconteceu um erro! ->"+error.message);
     });
 
   };

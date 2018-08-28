@@ -22,7 +22,7 @@ export class EditPessoasComponent implements OnInit {
     this.pessoaService.updatePessoa(pessoa).subscribe( data => {
         this.router.navigate(['pessoas']);
         }, error => {
-          alert("Oh não! aconteceu um erro! ->"+error);
+          alert("Oh não! aconteceu um erro! ->"+error.message);
          });          
   }
 
@@ -40,7 +40,7 @@ export class EditPessoasComponent implements OnInit {
       this.pessoaService.getPessoaId(params['id']).subscribe(res => {
               this.pessoa = res;
           }, error =>{
-            alert("Oh não! aconteceu um erro! ->"+error);
+            alert("Oh não! aconteceu um erro! ->"+error.message);
           });
       });
   }

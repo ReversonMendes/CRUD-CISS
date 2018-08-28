@@ -9,6 +9,7 @@ import { AddPessoasComponent } from './components/add-pessoas/add-pessoas.compon
 import { EditPessoasComponent } from './components/edit-pessoas/edit-pessoas.component';
 import { PessoasComponent } from './components/pessoas/pessoas.component';
 import { PessoaService } from './service/pessoa.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,9 +24,10 @@ import { PessoaService } from './service/pessoa.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule.forRoot()
   ],
   providers: [PessoaService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

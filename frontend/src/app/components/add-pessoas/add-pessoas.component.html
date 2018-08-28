@@ -1,4 +1,5 @@
-<div class="col-md-6">
+<div class="container">
+<div class="col-md-6 offset-md-3">
   <h2 class="text-center">Cadastro de Pessoa</h2>
   <form [formGroup]="formulario">
     <div class="form-group">
@@ -48,6 +49,8 @@
     </div>
     <div class="form-group">
       <button class="btn btn-success" (click)="incluirPessoa()" [disabled]="!formulario.valid">Gravar</button>
+      <a routerLink="/pessoas" class="btn btn-danger">Cancelar</a>
     </div>
   </form>
+</div>
 </div>
